@@ -15,7 +15,7 @@ exports.registrarUsuario = async (username, email, password) => {
     user.password = await bcrypt.hash(user.password,10);
     const usuarioCreado = await usuarioModel.create(user)
     if(usuarioCreado){
-        return {resultado: "Creado", data: user};
+        return {resultado: "Creado", data: usuarioCreado};
     }else{
         return {error: "No creado"};
     }
